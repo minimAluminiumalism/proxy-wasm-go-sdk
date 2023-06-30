@@ -532,9 +532,9 @@ func SetSharedData(key string, data []byte, cas uint32) error {
 	return internal.StatusToError(st)
 }
 
-func DelSharedData(key string, cas uint32) error {
+func DelSharedData(key string) error {
 	st := internal.ProxyDelSharedData(internal.StringBytePtr(key),
-		len(key), cas)
+		len(key))
 	return internal.StatusToError(st)
 }
 

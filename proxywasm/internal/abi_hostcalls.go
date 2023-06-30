@@ -30,7 +30,7 @@ func ProxyGetSharedData(keyData *byte, keySize int, returnValueData **byte, retu
 func ProxySetSharedData(keyData *byte, keySize int, valueData *byte, valueSize int, cas uint32) Status
 
 
-func ProxyDelSharedData(keyDate *byte, keySize int, cas uint32) Status
+func ProxyDelSharedData(keyDate *byte, keySize int) Status
 
 //export proxy_register_shared_queue
 func ProxyRegisterSharedQueue(nameData *byte, nameSize int, returnID *uint32) Status

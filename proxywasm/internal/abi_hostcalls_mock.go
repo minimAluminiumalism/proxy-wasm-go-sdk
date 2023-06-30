@@ -42,7 +42,7 @@ type ProxyWasmHost interface {
 	ProxySendLocalResponse(statusCode uint32, statusCodeDetailData *byte, statusCodeDetailsSize int, bodyData *byte, bodySize int, headersData *byte, headersSize int, grpcStatus int32) Status
 	ProxyGetSharedData(keyData *byte, keySize int, returnValueData **byte, returnValueSize *int, returnCas *uint32) Status
 	ProxySetSharedData(keyData *byte, keySize int, valueData *byte, valueSize int, cas uint32) Status
-  ProxyDelSharedData(keyData *byte, keySize int, cas uint32) Status
+  	ProxyDelSharedData(keyData *byte, keySize int) Status
 	ProxyRegisterSharedQueue(nameData *byte, nameSize int, returnID *uint32) Status
 	ProxyResolveSharedQueue(vmIDData *byte, vmIDSize int, nameData *byte, nameSize int, returnID *uint32) Status
 	ProxyDequeueSharedQueue(queueID uint32, returnValueData **byte, returnValueSize *int) Status
@@ -90,7 +90,7 @@ func (d DefaultProxyWAMSHost) ProxyGetSharedData(keyData *byte, keySize int, ret
 func (d DefaultProxyWAMSHost) ProxySetSharedData(keyData *byte, keySize int, valueData *byte, valueSize int, cas uint32) Status {
 	return 0
 }
-func (d DefaultProxyWAMSHost) ProxyDelSharedData(keyData *byte, keySize int, cas uint32) Status {
+func (d DefaultProxyWAMSHost) ProxyDelSharedData(keyData *byte, keySize int) Status {
   return 0
 }
 func (d DefaultProxyWAMSHost) ProxyRegisterSharedQueue(nameData *byte, nameSize int, returnID *uint32) Status {
@@ -173,8 +173,8 @@ func ProxyGetSharedData(keyData *byte, keySize int, returnValueData **byte, retu
 	return currentHost.ProxyGetSharedData(keyData, keySize, returnValueData, returnValueSize, returnCas)
 }
 
-func ProxyDelSharedData(keyData *byte, keySize int, cas uint32) Status {
-  return currentHost.ProxyDelSharedData(keyData, keySize, cas)
+func ProxyDelSharedData(keyData *byte, keySize int) Status {
+  return currentHost.ProxyDelSharedData(keyData, keySize)
 }
 
 func ProxySetSharedData(keyData *byte, keySize int, valueData *byte, valueSize int, cas uint32) Status {

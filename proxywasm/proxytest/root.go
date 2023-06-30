@@ -191,7 +191,7 @@ func (r *rootHostEmulator) ProxySetSharedData(keyData *byte, keySize int,
 	return internal.StatusOK
 }
 
-func (r *rootHostEmulator) ProxyDelSharedData(keyData *byte, keySize int, cas uint32) internal.Status {
+func (r *rootHostEmulator) ProxyDelSharedData(keyData *byte, keySize int) internal.Status {
 	key := strings.Clone(internal.RawBytePtrToString(keyData, keySize))
 	_, ok := r.sharedDataKVS[key]
 	if !ok {
