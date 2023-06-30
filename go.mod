@@ -1,4 +1,4 @@
-module github.com/tetratelabs/proxy-wasm-go-sdk
+module github.com/minimAluminiumalism/proxy-wasm-go-sdk
 
 go 1.19
 

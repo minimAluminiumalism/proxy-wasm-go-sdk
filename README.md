@@ -1,4 +1,4 @@
-# WebAssembly for Proxies (Go SDK) [![Build](https://github.com/tetratelabs/proxy-wasm-go-sdk/workflows/Test/badge.svg)](https://github.com/tetratelabs/proxy-wasm-go-sdk/actions) [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
+# WebAssembly for Proxies (Go SDK) [![Build](https://github.com/minimAluminiumalism/proxy-wasm-go-sdk/workflows/Test/badge.svg)](https://github.com/minimAluminiumalism/proxy-wasm-go-sdk/actions) [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](LICENSE)
 
 The Go SDK for
  [Proxy-Wasm](https://github.com/proxy-wasm/spec), enabling developers to write Proxy-Wasm plugins in Go. 
@@ -17,7 +17,7 @@ This SDK is powered by [TinyGo](https://tinygo.org/) and does not support the of
 
 ## Dealing with memory issues
 
-TinyGo's default memory allocator (Garbage Collector) is known to have some issues when it's used in the high workload environment (e.g. [1](https://github.com/tetratelabs/proxy-wasm-go-sdk/issues/349),[2](https://github.com/tetratelabs/proxy-wasm-go-sdk/issues/375)).
+TinyGo's default memory allocator (Garbage Collector) is known to have some issues when it's used in the high workload environment (e.g. [1](https://github.com/minimAluminiumalism/proxy-wasm-go-sdk/issues/349),[2](https://github.com/minimAluminiumalism/proxy-wasm-go-sdk/issues/375)).
 There's an alternative GC called [nottinygc](https://github.com/wasilibs/nottinygc) which not only resolves the memory related issues, but
 also improves the performance on production usage.
 
@@ -32,7 +32,7 @@ It can be enabled by adding a single line in your source code. Please refer to h
 ## Installation
 
 ```
-go get github.com/tetratelabs/proxy-wasm-go-sdk
+go get github.com/minimAluminiumalism/proxy-wasm-go-sdk
 ```
 
 ## Build and run Examples

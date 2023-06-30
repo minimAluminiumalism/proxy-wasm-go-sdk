@@ -19,8 +19,8 @@ import (
 
 	"github.com/tidwall/gjson"
 
-	"github.com/tetratelabs/proxy-wasm-go-sdk/proxywasm"
-	"github.com/tetratelabs/proxy-wasm-go-sdk/proxywasm/types"
+	"github.com/minimAluminiumalism/proxy-wasm-go-sdk/proxywasm"
+	"github.com/minimAluminiumalism/proxy-wasm-go-sdk/proxywasm/types"
 )
 
 func main() {

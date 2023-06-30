@@ -19,7 +19,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/tetratelabs/proxy-wasm-go-sdk/proxywasm/internal"
+	"github.com/minimAluminiumalism/proxy-wasm-go-sdk/proxywasm/internal"
 )
 
 type logHost struct {

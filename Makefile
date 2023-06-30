@@ -49,7 +49,7 @@ format:
 	    awk '/^import \($$/,/^\)$$/{if($$0=="")next}{print}' $$f > /tmp/fmt; \
 	    mv /tmp/fmt $$f; \
 	done
-	@go run $(goimports) -w -local github.com/tetratelabs/proxy-wasm-go-sdk `find . -name '*.go'`
+	@go run $(goimports) -w -local github.com/minimAluminiumalism/proxy-wasm-go-sdk `find . -name '*.go'`
 
 .PHONY: check
 check:
@@ -61,20 +61,20 @@ check:
 	fi
 
 # Build docker images of *compat* variant of Wasm Image Specification with built example binaries,
-# and push to ghcr.io/tetratelabs/proxy-wasm-go-sdk-examples.
+# and push to ghcr.io/minimAluminiumalism/proxy-wasm-go-sdk-examples.
 # See https://github.com/solo-io/wasm/blob/master/spec/spec-compat.md for details.
 # Only-used in github workflow on the main branch, and not for developers.
 .PHONY: wasm_image.build_push
 wasm_image.build_push:
 	@for f in `find ./examples -type f -name "main.go"`; do \
 		name=`echo $$f | sed -e 's/\\//-/g' | sed -e 's/\.-examples-//g' -e 's/\-main\.go//g'` ; \
-		ref=ghcr.io/tetratelabs/proxy-wasm-go-sdk-examples:$$name; \
+		ref=ghcr.io/minimAluminiumalism/proxy-wasm-go-sdk-examples:$$name; \
 		docker build -t $$ref . -f examples/wasm-image.Dockerfile --build-arg WASM_BINARY_PATH=$$(dirname $$f)/main.wasm; \
 		docker push $$ref; \
 	done
 
 # Build OCI images of *compat* variant of Wasm Image Specification with built example binaries,
-# and push to ghcr.io/tetratelabs/proxy-wasm-go-sdk-examples.
+# and push to ghcr.io/minimAluminiumalism/proxy-wasm-go-sdk-examples.
 # See https://github.com/solo-io/wasm/blob/master/spec/spec-compat.md for details.
 # Only-used in github workflow on the main branch, and not for developers.
 # Requires "buildah" CLI.
@@ -82,7 +82,7 @@ wasm_image.build_push:
 wasm_image.build_push_oci:
 	@for f in `find ./examples -type f -name "main.go"`; do \
 		name=`echo $$f | sed -e 's/\\//-/g' | sed -e 's/\.-examples-//g' -e 's/\-main\.go//g'` ; \
-		ref=ghcr.io/tetratelabs/proxy-wasm-go-sdk-examples:$$name-oci; \
+		ref=ghcr.io/minimAluminiumalism/proxy-wasm-go-sdk-examples:$$name-oci; \
 		buildah bud -f examples/wasm-image.Dockerfile --build-arg WASM_BINARY_PATH=$$(dirname $$f)/main.wasm -t $$ref .; \
 		buildah push $$ref; \
 	done

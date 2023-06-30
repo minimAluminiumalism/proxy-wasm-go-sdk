@@ -10,7 +10,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/tetratelabs/proxy-wasm-go-sdk/proxywasm/types"
+	"github.com/minimAluminiumalism/proxy-wasm-go-sdk/proxywasm/types"
 )
 
 type timedPlugin struct {

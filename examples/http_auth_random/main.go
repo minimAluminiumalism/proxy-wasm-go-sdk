@@ -17,8 +17,8 @@ package main
 import (
 	"hash/fnv"
 
-	"github.com/tetratelabs/proxy-wasm-go-sdk/proxywasm"
-	"github.com/tetratelabs/proxy-wasm-go-sdk/proxywasm/types"
+	"github.com/minimAluminiumalism/proxy-wasm-go-sdk/proxywasm"
+	"github.com/minimAluminiumalism/proxy-wasm-go-sdk/proxywasm/types"
 )
 
 const clusterName = "httpbin"

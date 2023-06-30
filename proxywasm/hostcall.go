@@ -19,8 +19,8 @@ import (
 	"fmt"
 	"math"
 
-	"github.com/tetratelabs/proxy-wasm-go-sdk/proxywasm/internal"
-	"github.com/tetratelabs/proxy-wasm-go-sdk/proxywasm/types"
+	"github.com/minimAluminiumalism/proxy-wasm-go-sdk/proxywasm/internal"
+	"github.com/minimAluminiumalism/proxy-wasm-go-sdk/proxywasm/types"
 )
 
 // GetVMConfiguration is used for retrieving configurations given in the "vm_config.configuration" field.
@@ -529,6 +529,12 @@ func GetSharedData(key string) (value []byte, cas uint32, err error) {
 func SetSharedData(key string, data []byte, cas uint32) error {
 	st := internal.ProxySetSharedData(internal.StringBytePtr(key),
 		len(key), &data[0], len(data), cas)
+	return internal.StatusToError(st)
+}
+
+func DelSharedData(key string, cas uint32) error {
+	st := internal.ProxyDelSharedData(internal.StringBytePtr(key),
+		len(key), cas)
 	return internal.StatusToError(st)
 }
 

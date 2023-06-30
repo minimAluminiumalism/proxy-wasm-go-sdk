@@ -1,12 +1,12 @@
-module github.com/tetratelabs/proxy-wasm-go-sdk/examples/dispatch_call_on_tick
+module github.com/minimAluminiumalism/proxy-wasm-go-sdk/examples/dispatch_call_on_tick
 
 go 1.19
 
-replace github.com/tetratelabs/proxy-wasm-go-sdk => ../..
+replace github.com/minimAluminiumalism/proxy-wasm-go-sdk => ../..
 
 require (
 	github.com/stretchr/testify v1.8.2
-	github.com/tetratelabs/proxy-wasm-go-sdk v0.0.0-00010101000000-000000000000
+	github.com/minimAluminiumalism/proxy-wasm-go-sdk v0.0.0-00010101000000-000000000000
 )
 
 require (

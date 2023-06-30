@@ -4,7 +4,7 @@ import (
 	"errors"
 	"strconv"
 
-	"github.com/tetratelabs/proxy-wasm-go-sdk/proxywasm/types"
+	"github.com/minimAluminiumalism/proxy-wasm-go-sdk/proxywasm/types"
 )
 
 type BufferType uint32

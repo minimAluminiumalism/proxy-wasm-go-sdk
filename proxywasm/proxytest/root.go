@@ -19,8 +19,8 @@ import (
 	"log"
 	"strings"
 
-	"github.com/tetratelabs/proxy-wasm-go-sdk/proxywasm/internal"
-	"github.com/tetratelabs/proxy-wasm-go-sdk/proxywasm/types"
+	"github.com/minimAluminiumalism/proxy-wasm-go-sdk/proxywasm/internal"
+	"github.com/minimAluminiumalism/proxy-wasm-go-sdk/proxywasm/types"
 )
 
 type (
@@ -188,6 +188,17 @@ func (r *rootHostEmulator) ProxySetSharedData(keyData *byte, keySize int,
 
 	r.sharedDataKVS[key].cas = cas + 1
 	r.sharedDataKVS[key].data = value
+	return internal.StatusOK
+}
+
+func (r *rootHostEmulator) ProxyDelSharedData(keyData *byte, keySize int, cas uint32) internal.Status {
+	key := strings.Clone(internal.RawBytePtrToString(keyData, keySize))
+	_, ok := r.sharedDataKVS[key]
+	if !ok {
+		return internal.StatusOK
+	}
+	delete(r.sharedDataKVS, key)
+
 	return internal.StatusOK
 }
 
