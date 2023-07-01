@@ -91,7 +91,7 @@ func (d DefaultProxyWAMSHost) ProxySetSharedData(keyData *byte, keySize int, val
 	return 0
 }
 func (d DefaultProxyWAMSHost) ProxyDelSharedData(keyData *byte, keySize int) Status {
-  return 0
+  	return 0
 }
 func (d DefaultProxyWAMSHost) ProxyRegisterSharedQueue(nameData *byte, nameSize int, returnID *uint32) Status {
 	return 0
