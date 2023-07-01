@@ -188,6 +188,14 @@ func (r *rootHostEmulator) ProxySetSharedData(keyData *byte, keySize int,
 
 	r.sharedDataKVS[key].cas = cas + 1
 	r.sharedDataKVS[key].data = value
+
+	// test delete shared data function
+	_, ok = r.sharedDataKVS[key]
+	if !ok {
+		return internal.StatusOK
+	}
+	delete(r.sharedDataKVS, key)
+	
 	return internal.StatusOK
 }
 

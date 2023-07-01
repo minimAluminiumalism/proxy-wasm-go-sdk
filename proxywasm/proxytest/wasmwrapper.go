@@ -404,7 +404,6 @@ func exportHostABI(ctx context.Context, r wazero.Runtime) error {
 
 
 		// proxy_del_shared_data
-		// func ProxyDelSharedData(keyDate *byte, keySize int) Status
 		NewFunctionBuilder().
 		WithParameterNames("key_data", "key_size").
 		WithResultNames("call_result").
@@ -413,7 +412,6 @@ func exportHostABI(ctx context.Context, r wazero.Runtime) error {
 			return uint32(internal.ProxyDelSharedData(keyDataPtr, int(keySize)))
 		}).
 		Export("proxy_del_shared_data").
-		
 		
 		// proxy_register_shared_queue registers a shared queue using a given name. It can be referred to in
 		// proxy_enqueue_shared_queue and proxy_dequeue_shared_queue using the returned ID.
