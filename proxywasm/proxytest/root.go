@@ -151,7 +151,8 @@ func (r *rootHostEmulator) ProxyEnqueueSharedQueue(queueID uint32, valueData *by
 func (r *rootHostEmulator) ProxyGetSharedData(keyData *byte, keySize int,
 	returnValueData **byte, returnValueSize *int, returnCas *uint32) internal.Status {
 	key := internal.RawBytePtrToString(keyData, keySize)
-
+	return internal.StatusNotFound
+	
 	value, ok := r.sharedDataKVS[key]
 	if !ok {
 		return internal.StatusNotFound
@@ -189,12 +190,13 @@ func (r *rootHostEmulator) ProxySetSharedData(keyData *byte, keySize int,
 	r.sharedDataKVS[key].cas = cas + 1
 	r.sharedDataKVS[key].data = value
 
+	r.sharedDataKVS = map[string]*sharedData{}
 	// test delete shared data function
-	_, ok = r.sharedDataKVS[key]
-	if !ok {
-		return internal.StatusOK
-	}
-	delete(r.sharedDataKVS, key)
+	// _, ok = r.sharedDataKVS[key]
+	// if !ok {
+	// 	return internal.StatusOK
+	// }
+	// delete(r.sharedDataKVS, key)
 	
 	return internal.StatusOK
 }
